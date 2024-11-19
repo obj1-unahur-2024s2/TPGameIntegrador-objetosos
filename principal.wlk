@@ -45,20 +45,21 @@ object principal{
         game.whenCollideDo(tomy, {elemento => elemento.colisionadoPor(tomy)})
         utiles.utilesNecesarios.forEach({u => game.addVisual(u)
             return self.ubicarAleatoriamente(u)})
+        if(self.tieneUtilesNecesarios()){self.final()}
     }
 
     method final(){
-        if(self.tieneUtilesNecesarios()){
+        
             self.restarGame()
             game.height(alto)
 	        game.width(ancho)
             game.addVisual(pantallaFinal)
             game.addVisual(textoFinJuego)
-        }
+        
     }
 
 
-    method tieneUtilesNecesarios(){return utilesQueTiene.size() === utiles.utilesNecesarios.size() }
+    method tieneUtilesNecesarios(){return utilesQueTiene.size() == utiles.utilesNecesarios.size() }
 
     method ubicarAleatoriamente(visual) {
 		const posicion = new Position(
