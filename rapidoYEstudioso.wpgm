@@ -1,0 +1,9 @@
+import principal.*
+import wollok.game.*
+ 
+program rapidoYEstudioso {
+	principal.inicio()
+	game.start()
+}
+
+
