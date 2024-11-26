@@ -1,14 +1,16 @@
+import utiles.*
 import game.*
 import pantallas.*
 import personajes.*
 import edificios.*
 
-object principal{
+const velocidad = 150
+
+object juego{
     const ancho = 28
     const alto = 14
-    const utilesQueTiene = []
 
-    method restarGame(){
+    method restartGame(){
         game.allVisuals().forEach({visual => game.removeVisual(visual)})
     }
 
@@ -16,7 +18,7 @@ object principal{
     method anchoPantalla(){return ancho}
 
     method inicio(){
-        self.restarGame()
+        self.restartGame()
         game.title("Rápido y estudioso")
         game.addVisual(pantallaInicioJuego)
 	    game.height(alto)
@@ -26,45 +28,63 @@ object principal{
     }
 
     method instrucciones(){
-        self.restarGame()
+        self.restartGame()
         game.addVisual(pantallaInstrucciones)
         game.height(alto)
 	    game.width(ancho)
         game.addVisual(textoIniciarJuego)
-        keyboard.space().onPressDo({self.jugar()})
+        keyboard.space().onPressDo({self.jugarMapa()})
     }
 
-    method jugar(){
-        self.restarGame()
+    method jugarMapa(){
+        self.restartGame()
         game.height(alto)
 	    game.width(ancho)
         game.addVisual(pantallaMapaCiudad)
         edificios.agregarEdificioAlJuego()
         game.addVisual(tomy)
         tomy.moverse()
-        game.whenCollideDo(tomy, {elemento => elemento.colisionadoPor(tomy)})
         utiles.utilesNecesarios.forEach({u => game.addVisual(u)
             return self.ubicarAleatoriamente(u)})
-        if(self.tieneUtilesNecesarios()){self.final()}
+        utiles.noNecesarios.forEach(({nn => game.addVisual(nn)
+            return self.ubicarAleatoriamente(nn)}))
+        game.whenCollideDo(tomy, {elemento => elemento.colisionadoPor(tomy)})
+        game.addVisual(textoScoreUtiles)
+        textoScoreUtiles.ubicarLista()
     }
 
-    method final(){
-        
-            self.restarGame()
+    method rendirParcial(){
+        self.restartGame()
+        game.height(alto)
+        game.width(ancho)
+        game.addVisual(pantallaSalon)
+        game.addVisual(tomyRinde)
+        tomyRinde.saltar()
+        game.addVisual(profesor)
+        game.addVisual(parcial)
+        parcial.iniciar()
+        game.addVisual(textoScoreParcial)
+        game.whenCollideDo(tomyRinde, {parcial => parcial.colisionadoPor(tomyRinde)})
+    }
+
+    method finalGanador(){
+            self.restartGame()
             game.height(alto)
 	        game.width(ancho)
-            game.addVisual(pantallaFinal)
-            game.addVisual(textoFinJuego)
-        
+            game.addVisual(pantallaGanador) 
     }
 
-
-    method tieneUtilesNecesarios(){return utilesQueTiene.size() == utiles.utilesNecesarios.size() }
+    method gameOver(){
+        self.restartGame()
+        game.height(alto)
+        game.width(ancho)
+        game.addVisual(pantallaGameOver)
+    }
 
     method ubicarAleatoriamente(visual) {
 		const posicion = new Position(
-			x = 1.randomUpTo(ancho),
-			y = 1.randomUpTo(alto)
+			x = 1.randomUpTo(ancho -1),
+			y = 1.randomUpTo(alto -1)
 		)
 		if (game.getObjectsIn(posicion).isEmpty()) visual.position(posicion)
 		else self.ubicarAleatoriamente(visual)

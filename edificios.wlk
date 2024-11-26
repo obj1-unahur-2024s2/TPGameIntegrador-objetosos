@@ -5,12 +5,18 @@ import visual.*
 
 class Construcciones inherits Visuales{
     override method colisionadoPor(personaje){
-        personaje.position(game.at(principal.anchoPantalla()/2 -1, principal.altoPantalla()/2)) 
+        personaje.position(game.at(juego.anchoPantalla()/2 -1, juego.altoPantalla()/2)) 
         game.say(personaje,personaje.mensajeChoca())
     }
 }
 
-const universidad = new Construcciones(position = game.at(12,10), image = "universidad.png")
+class Universidad inherits Visuales{
+    override method colisionadoPor(personaje){ 
+        juego.rendirParcial()
+    }
+}
+
+const universidadNueva = new Universidad(position = game.at(13,11), image = "universidad.png") 
 const edificioRojo = new Construcciones(position = game.at(0,5), image = "edificioRojo_150.png")
 const edificioRojo1 = new Construcciones(position = game.at(0,2), image = "edificioRojo_150.png")
 const edificioRojo2 = new Construcciones(position = game.at(1,5), image = "edificioRojo_150.png")
@@ -22,7 +28,6 @@ const edificioNaranja2 = new Construcciones(position = game.at(10,5), image = "e
 const edificioAzul = new Construcciones(position = game.at(19,2), image = "edificioAzul.png")
 const edificioAzul1 = new Construcciones(position = game.at(24,2), image = "edificioAzul.png")
 const edificioVerde = new Construcciones(position = game.at(0,10), image = "edificioVerde200.png")
-const edificioVerde1 = new Construcciones(position = game.at(24,10), image = "edificioVerde200.png")
 const edificioRojo5 = new Construcciones(position = game.at(22,2), image = "edificioRojo_150.png")
 const arbol = new Construcciones(position = game.at(16,6), image = "arbol100.png")
 const arbol1 = new Construcciones(position = game.at(18,6), image = "arbol100.png")
@@ -33,9 +38,9 @@ const arbol5 = new Construcciones(position = game.at(26,6), image = "arbol100.pn
 
 object edificios{
 
-    const edificios = [universidad, edificioRojo, edificioRojo1, edificioRojo2, edificioRojo3, edificioRojo4, edificioRojo5,
+    const edificios = [edificioRojo, edificioRojo1, edificioRojo2, edificioRojo3, edificioRojo4, edificioRojo5,
         edificioNaranja, edificioNaranja1, edificioNaranja2,
-        edificioAzul, edificioAzul1, edificioVerde, edificioVerde1,
+        edificioAzul, edificioAzul1, edificioVerde, 
         arbol, arbol1, arbol2, arbol3, arbol4, arbol5]
     
     method agregarEdificioAlJuego(){edificios.forEach({e => game.addVisual(e)})}

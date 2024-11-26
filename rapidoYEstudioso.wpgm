@@ -2,7 +2,7 @@ import principal.*
 import wollok.game.*
  
 program rapidoYEstudioso {
-	principal.inicio()
+	juego.inicio()
 	game.start()
 }
 
