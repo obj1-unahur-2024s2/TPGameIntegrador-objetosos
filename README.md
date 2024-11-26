@@ -1,22 +1,42 @@
-# Nombre del juego (<- borrar y completar)
+# RÁPIDO Y ESTUDIOSO
 
-## Equipo de desarrollo
+## Equipo de desarrollo: OBJETOSOS
 
-- Alguien
-- Persona
-- etc.
+- Desarrollado por 
+    Alan Navia
 
-## Capturas
+## CAPTURAS
 
-(agregar)
+ 
 
-## Reglas de Juego / Instrucciones
+ 
 
-(Escribirlas)
+ 
+
+ 
+
+ 
+
+ 
 
 
-## Otros
 
-- Curso/Facultad
-- Versión de wollok
+## REGLAS DEL JUEGO
+
+Tomy es un estudiante de la UNAHUR que debe ir a rendir un parcial y en el camino debera recoger los utiles necesarios para rendir. 
+Una vez que tenga todos los utiles necesarios podras ingresar a la UNAHUR a rendir. 
+Dentro de la UNAHUR deberas esquivar las preguntas que le manda el profesor. Cada pregunta esquivada es una pregunta correcta. 
+Para ganar deberas esquivar la cantidad de preguntas que indica el juego. Si no logras esquivar alguna de las preguntas, has perdido el juego. 
+
+## INSTRUCCIONES
+
+El juego consta de 2 niveles. 
+En el primer nivel deberas utilizar las flechas de movimiento para ir recogiendo la lista de utiles necesarios. Tomy recogera los elementos automaticamente. 
+Si tocas alguno de los arboles o edificios en algun punto, el juego te movera al centro del juego. 
+En el segundo nivel deberas usar la flecha de subir para saltar y esquivar las preguntas que te manda el profesor. 
+
+## OTROS
+
+- Programaci�n con objetos 1 - 2do Cuatrimestre 2024 - Comision 1B
+- Versión de wollok: 0.2.7
 - Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
