@@ -7,18 +7,11 @@
 
 ## CAPTURAS
 
- 
+ ![image](https://github.com/user-attachments/assets/ca2e395e-53b6-4dcd-ae46-a4a9853b1b25)
 
- 
+ ![image](https://github.com/user-attachments/assets/48c0a7cf-f9f4-4a9b-b94f-e74db490ce67)
 
- 
-
- 
-
- 
-
- 
-
+ ![image](https://github.com/user-attachments/assets/f0bc8c6f-bf40-48d5-91d2-77c3354b0d5f)
 
 
 ## REGLAS DEL JUEGO
